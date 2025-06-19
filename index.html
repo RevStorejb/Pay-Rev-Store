@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Options</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 20px;
+            color: #333;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+        }
+        h1 {
+            text-align: center;
+            color: #4a6baf;
+            margin-bottom: 30px;
+        }
+        .payment-method {
+            margin-bottom: 25px;
+            padding: 20px;
+            border-radius: 8px;
+            background: #f9f9f9;
+            border: 1px solid #eee;
+        }
+        .payment-method h2 {
+            margin-top: 0;
+            color: #4a6baf;
+            display: flex;
+            align-items: center;
+        }
+        .payment-method img {
+            width: 30px;
+            margin-right: 10px;
+        }
+        .payment-details {
+            margin-top: 15px;
+            padding: 15px;
+            background: white;
+            border-radius: 5px;
+            border: 1px dashed #ccc;
+        }
+        .copy-btn {
+            background: #4a6baf;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-left: 10px;
+            font-size: 12px;
+        }
+        .copy-btn:hover {
+            background: #3a5a9f;
+        }
+        .qris-img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 15px auto;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        .instructions {
+            font-size: 14px;
+            color: #666;
+            margin-top: 20px;
+            padding: 15px;
+            background: #f0f7ff;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Payment Options</h1>
+        
+        <div class="payment-method">
+            <h2><img src="https://upload.wikimedia.org/wikipedia/commons/7/72/Logo_dana_blue.svg" alt="DANA"> DANA</h2>
+            <div class="payment-details">
+                <strong>Phone Number:</strong> 
+                <span id="dana-number">081220568534</span>
+                <button class="copy-btn" onclick="copyToClipboard('dana-number')">Copy</button>
+            </div>
+        </div>
+        
+        <div class="payment-method">
+            <h2><img src="https://upload.wikimedia.org/wikipedia/commons/8/86/Gopay_logo.svg" alt="GoPay"> GoPay</h2>
+            <div class="payment-details">
+                <strong>Phone Number:</strong> 
+                <span id="gopay-number">081324982853</span>
+                <button class="copy-btn" onclick="copyToClipboard('gopay-number')">Copy</button>
+            </div>
+        </div>
+        
+        <div class="payment-method">
+            <h2><img src="https://qris.id/wp-content/uploads/2021/09/QRIS-Logo-Vertical-1.png" alt="QRIS" style="width: 25px;"> QRIS</h2>
+            <div class="payment-details">
+                <img src="https://files.catbox.moe/0ro09v.jpg" alt="QRIS Code" class="qris-img">
+                <p style="text-align: center;">Scan this QR code to make payment</p>
+            </div>
+        </div>
+        
+        <div class="instructions">
+            <h3>Payment Instructions:</h3>
+            <ol>
+                <li>Select your preferred payment method</li>
+                <li>For DANA/GoPay: Send payment to the number provided</li>
+                <li>For QRIS: Scan the QR code using your mobile banking app</li>
+                <li>After payment, please send proof of payment to the seller</li>
+            </ol>
+        </div>
+    </div>
+
+    <script>
+        function copyToClipboard(elementId) {
+            const element = document.getElementById(elementId);
+            const text = element.innerText;
+            
+            navigator.clipboard.writeText(text).then(() => {
+                alert('Copied to clipboard: ' + text);
+            }).catch(err => {
+                console.error('Failed to copy: ', err);
+            });
+        }
+    </script>
+</body>
+</html>
